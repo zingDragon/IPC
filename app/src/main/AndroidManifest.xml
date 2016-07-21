@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.zjl.ipc"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <permission
+        android:name="com.zjl.ipc.permission.ACCESS_AidlService"
+        android:protectionLevel="normal"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".LocalService"
+            android:enabled="true"
+            android:exported="false">
+        </service>
+
+        <activity android:name=".BindingActivity">
+        </activity>
+
+        <service
+            android:name=".MessengerService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":messenger_service">
+        </service>
+
+        <activity android:name=".MessengerActivity">
+        </activity>
+
+        <service
+            android:name=".AidlService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":aidl_service">
+        </service>
+
+        <activity android:name=".AidlActivity">
+        </activity>
+    </application>
+
+</manifest>
